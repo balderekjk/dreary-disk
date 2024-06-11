@@ -2,7 +2,7 @@
 layout: ../../layouts/Layout.astro
 title: Hello
 date: 2024-06-11T10:15:00.000Z
-thumbnail: images/2f29e8aa-2bff-4ade-9eb5-dd179c27b3c0.sketchpad.jpg
+thumbnail: /public/images/2f29e8aa-2bff-4ade-9eb5-dd179c27b3c0.sketchpad.jpg
 rating: 5
 ---
 

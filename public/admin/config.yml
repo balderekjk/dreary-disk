@@ -20,3 +20,25 @@ collections:
       - { label: 'Featured Image', name: 'thumbnail', widget: 'image' }
       - { label: 'Rating (scale of 1-5)', name: 'rating', widget: 'number' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'testimonials'
+    label: 'Testimonials'
+    widget: 'list'
+    summary: '{{fields.quote}} - {{fields.author.name}}'
+    fields:
+      - {
+          label: Quote,
+          name: quote,
+          widget: string,
+          default: 'Everything is awesome!',
+        }
+      - label: Author
+        name: author
+        widget: object
+        fields:
+          - { label: Name, name: name, widget: string, default: 'Nobody' }
+          - {
+              label: Avatar,
+              name: avatar,
+              widget: image,
+              default: '/images/nobody.jpg',
+            }
