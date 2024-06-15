@@ -3,7 +3,38 @@ backend:
   branch: master
 media_folder: 'public/images'
 public_folder: '/images'
+site_url: https://dreary-diskus.netlify.app
 collections:
+  - name: 'page' # Used in routes, e.g., /admin/collections/blog
+    label: 'Page' # Used in the UI
+    folder: 'src/pages' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields for each document, usually in front matter
+      - {
+          label: 'Layout',
+          name: 'layout',
+          widget: 'hidden',
+          default: '../../layouts/Layout.astro',
+        }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Featured Image', name: 'thumbnail', widget: 'image' }
+      # - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Body'
+        name: 'body'
+        widget: 'list'
+        types:
+          - label: 'Add Markdown'
+            name: 'addMarkdown'
+            widget: 'object'
+            fields:
+              - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
+          - label: 'Add Image'
+            name: 'addImage'
+            widget: 'object'
+            fields:
+              - { label: 'Image', name: 'image', widget: 'image' }
+              - { label: 'Alt Text', name: 'alt', widget: 'string' }
   - name: 'post' # Used in routes, e.g., /admin/collections/blog
     label: 'Post' # Used in the UI
     folder: 'src/pages/posts' # The path to the folder where the documents are stored
@@ -18,27 +49,4 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Featured Image', name: 'thumbnail', widget: 'image' }
-      - { label: 'Rating (scale of 1-5)', name: 'rating', widget: 'number' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-      - label: 'Testimonials'
-        name: 'testimonials'
-        widget: 'list'
-        summary: '{{fields.quote}} - {{fields.author.name}}'
-        fields:
-          - {
-              label: Quote,
-              name: quote,
-              widget: string,
-              default: 'Everything is awesome!',
-            }
-          - label: Author
-            name: author
-            widget: object
-            fields:
-              - { label: Name, name: name, widget: string, default: 'Nobody' }
-              - {
-                  label: Avatar,
-                  name: avatar,
-                  widget: image,
-                  default: '/images/nobody.jpg',
-                }

@@ -1,23 +1,36 @@
 ---
-interface Props {
-  title: string;
-}
+import NavMenu from '../components/NavMenu.astro';
+import Announcements from '../components/Announcements.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import '../styles/layout.css';
 
-const { title } = Astro.props;
+const { frontmatter={}, title='dreary-diskus' } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
+<html class="bg-slate-900" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{frontmatter.title || title}</title>
   </head>
-  <body>
-    <slot />
+  <body class="bg-slate-100 text-slate-950 dark:bg-slate-950 dark:text-slate-50 m-0 font-sans max-w-[1800px] mx-auto">
+    <NavMenu />
+    <Banner />
+    <div class="mt-8 lg:mx-20 mx-8 lg:gap-10 grid lg:grid-cols-[2fr_1fr] grid-cols-1 [&_a]:text-[darkgreen] [&_a:visited]:text-[purple]">
+      <div class="mb-8">
+        <slot />
+      </div>
+      <div class="grid gap-6 max-w-[400px] mx-auto h-fit mb-12">
+        <Announcements />
+      </div>
+    </div>
+    <Footer />
   </body>
   <script>
     //@ts-nocheck
@@ -30,18 +43,20 @@ const { title } = Astro.props;
         }
       });
     }
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+
+    // Whenever the user explicitly chooses light mode
+    localStorage.theme = 'light'
+
+    // Whenever the user explicitly chooses dark mode
+    localStorage.theme = 'dark'
+
+    // Whenever the user explicitly chooses to respect the OS preference
+    localStorage.removeItem('theme')
   </script>
 </html>
-<style is:global>
-  html {
-    font-family: system-ui, sans-serif;
-  }
-  pre {
-    padding: 0.5rem;
-  }
-  code {
-    font-family:
-      Courier,
-      monospace;
-  }
-</style>
