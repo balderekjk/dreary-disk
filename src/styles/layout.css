@@ -94,6 +94,9 @@ form input {
 form blockquote {
   margin-left: 0.25rem;
 }
+.text-primary {
+  color: #469f28;
+}
 .hint {
   color: #374151;
   margin-top: 0.25rem;

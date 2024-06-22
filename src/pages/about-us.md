@@ -3,7 +3,7 @@ layout: '../layouts/Layout.astro'
 title: 'NHEA - about us'
 ---
 
-<h1 class="font-[400] text-[olivedrab] mt-[revert]">About Us</h1>
+<h1 class="font-[400] text-primary mt-[revert]">About Us</h1>
 
 <h2 class="font-[400]">ʻAʻohe pau ka ʻike i ka hālau hoʻokahi</h2>
 

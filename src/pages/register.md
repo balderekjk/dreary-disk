@@ -3,9 +3,7 @@ layout: '../layouts/Layout.astro'
 title: 'NHEA - register'
 ---
 
-import Form from '../components/Form.astro'
-
-<h1 class="font-[400] text-[olivedrab]">2024 NHEA Convention Registration</h1>
+<h1 class="font-[400] text-primary">2024 NHEA Convention Registration</h1>
 
 To register, please complete the form below. We highly recommend using an email address only once for each registered person to prevent possible registration issues. The registration fee for this convention is $300 per person.
 
@@ -50,10 +48,10 @@ Notice for @hawaii.edu emails: The auto-confirmation email containing a record o
   <label>
     Phone Number*
     <input name="Phone" type="tel" required />
-    <p class="text-gray-700 mt-0">numbers only</p>
+    <p class="hint">numbers only</p>
   </label>
   <h3 class="mb-2">Payment Method*</h3>
-  <p class="text-gray-700 mt-0">**Only One Purchase Per Person/Email/Submission**<br />NHEA Convention Registration is $300<br />If paying with Cash, Check, or Purchase Order, direct your payment to:<br />NHEA<br />P.O. Box 1190<br />Wailuku, HI 96793</p>
+  <p class="hint">**Only One Purchase Per Person/Email/Submission**<br />NHEA Convention Registration is $300<br />If paying with Cash, Check, or Purchase Order, direct your payment to:<br />NHEA<br />P.O. Box 1190<br />Wailuku, HI 96793</p>
   <hr />
   <label>
     <input type="radio" name="Payment Method" value="PayPal" />

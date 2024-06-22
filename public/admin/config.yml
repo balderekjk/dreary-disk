@@ -1,8 +1,8 @@
 backend:
   name: git-gateway
   branch: master
-media_folder: 'public/images'
-public_folder: '/images'
+media_folder: 'src/assets/images'
+public_folder: 'src/assets/images'
 site_url: https://dreary-diskus.netlify.app
 collections:
   - name: 'page' # Used in routes, e.g., /admin/collections/blog
@@ -19,22 +19,7 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Featured Image', name: 'thumbnail', widget: 'image' }
-      # - { label: 'Body', name: 'body', widget: 'markdown' }
-      - label: 'Body'
-        name: 'body'
-        widget: 'list'
-        types:
-          - label: 'Add Markdown'
-            name: 'addMarkdown'
-            widget: 'object'
-            fields:
-              - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
-          - label: 'Add Image'
-            name: 'addImage'
-            widget: 'object'
-            fields:
-              - { label: 'Image', name: 'image', widget: 'image' }
-              - { label: 'Alt Text', name: 'alt', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'post' # Used in routes, e.g., /admin/collections/blog
     label: 'Post' # Used in the UI
     folder: 'src/pages/posts' # The path to the folder where the documents are stored

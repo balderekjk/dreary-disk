@@ -3,12 +3,12 @@ layout: '../layouts/Layout.astro'
 title: 'NHEA - annual convention'
 ---
 
-<h2 class="text-[olivedrab] sm:mt-0">Aloha mai kākou,</h2>
+<h2 class="text-primary sm:mt-0">Aloha mai kākou,</h2>
 
 <!-- <Image float="right" /> -->
 
 <figure class="flex justify-center overflow-hidden sm:float-right float-none text-center sm:max-w-[50%] mx-0 my-0 sm:ml-6">
-  <img src="public/images/2f29e8aa-2bff-4ade-9eb5-dd179c27b3c0.sketchpad.jpg" alt="one palala jammin the ukulele" width="350px">
+  <img src="/src/assets/images/2f29e8aa-2bff-4ade-9eb5-dd179c27b3c0.sketchpad.jpg" alt="one palala jammin the ukulele" width="350px">
 </figure>
 
 We continue to finalize the conference agenda and are looking forward to returning to Maui for the 25th annual NHEA conference. This year's conference will be held on March 21 and 22 at UH Maui College. The first NHEA conference was hosted at Maui College, 25 years ago. Last year NHEA had a one day in person conference after being virtually held for 3 years. This year we return to our normal format of a two day conference.

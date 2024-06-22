@@ -3,7 +3,7 @@ layout: '../layouts/Layout.astro'
 title: Home
 ---
 
-<h1 class="text-[olivedrab] font-[400]">25th Annual Native Hawaiian Education Association Conference - 2024</h1>
+<h1 class="text-primary font-[400]">25th Annual Native Hawaiian Education Association Conference - 2024</h1>
 <u>Here is the date, location and time for this year's NHEA Conference:</u>
 
 <h2>Thursday (11am-5pm), March 21 and Friday (9am-4pm), March 22, 2024<br />@ Maui College, Pāʻina Building</h2>
