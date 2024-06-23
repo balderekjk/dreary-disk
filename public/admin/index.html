@@ -24,7 +24,7 @@
         { name: 'width', label: 'Width', widget: 'string', default: '200px' },
         { name: 'height', label: 'Height', widget: 'string', default: '300px' }
       ],
-      pattern: /^<figure class="text-center sm:float-(left|right|none) float-none sm:max-w-\[50%\] sm:(ml-6|mr-6|mx-auto) mx-0 my-0">\s*<img src="([^"]+)" alt="([^"]+)" width="([^"]+)" height="([^"]+)" class="max-w-\[100%\] h-auto" \/>\s*<figcaption>(.*?)<\/figcaption>\s*<\/figure>$/ms,
+      pattern: /^<figure class="text-center sm:float-(.*?) float-none sm:max-w-\[50%\] sm:(.*?) mx-0 my-0">\s*<img src="(.*?)" alt="(.*?)" width="(.*?)" height="(.*?)" class="max-w-\[100%\] h-auto" \/>\s*<figcaption>(.*?)<\/figcaption>\s*<\/figure>$/ms,
       fromBlock: function (match) {
         return {
           float: match[1],
@@ -37,22 +37,21 @@
         };
       },
       toBlock: function (obj) {
-        const marginClass = obj.float === "right" ? "ml-6" : obj.float === "left" ? "mr-6" : "mx-auto";
+        const marginClass = obj.float == "right" ? "ml-6" : obj.float == "left" ? "mr-6" : "mx-auto";
         return `<figure class="text-center sm:float-${obj.float} float-none sm:max-w-[50%] sm:${marginClass} mx-0 my-0">
-        <img src="${obj.src}" alt="${obj.alt}" width="${obj.width}" height="${obj.height}" class="max-w-[100%] h-auto" />
-        <figcaption>${obj.caption}</figcaption>
-      </figure>`;
+          <img src="${obj.src}" alt="${obj.alt}" width="${obj.width}" height="${obj.height}" class="max-w-[100%] h-auto" />
+          <figcaption>${obj.caption}</figcaption>
+        </figure>`;
       },
       toPreview: function (obj) {
-        const marginClass = obj.float === "right" ? "ml-6" : obj.float === "left" ? "mr-6" : "mx-auto";
+        const marginClass = obj.float == "right" ? "ml-6" : obj.float == "left" ? "mr-6" : "mx-auto";
         return `<figure class="text-center sm:float-${obj.float} float-none sm:max-w-[50%] sm:${marginClass} mx-0 my-0">
-        <img src="${obj.src}" alt="${obj.alt}" width="${obj.width}" height="${obj.height}" class="max-w-[100%] h-auto" />
-        <figcaption>${obj.caption}</figcaption>
-      </figure>`;
+          <img src="${obj.src}" alt="${obj.alt}" width="${obj.width}" height="${obj.height}" class="max-w-[100%] h-auto" />
+          <figcaption>${obj.caption}</figcaption>
+        </figure>`;
       }
     });
   </script>
-
 </body>
 
 </html>
