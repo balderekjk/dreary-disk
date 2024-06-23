@@ -19,7 +19,12 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Featured Image', name: 'thumbnail', widget: 'image' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - {
+          label: 'Body',
+          name: 'body',
+          widget: 'markdown',
+          editor_components: ['image'],
+        }
   - name: 'post' # Used in routes, e.g., /admin/collections/blog
     label: 'Post' # Used in the UI
     folder: 'src/pages/posts' # The path to the folder where the documents are stored
