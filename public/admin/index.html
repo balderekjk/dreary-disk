@@ -45,10 +45,10 @@
       },
       toPreview: function (obj) {
         const marginClass = obj.float == "right" ? "ml-6" : obj.float == "left" ? "mr-6" : "mx-auto";
-        return `<figure class="text-center sm:float-${obj.float} float-none sm:max-w-[50%] sm:${marginClass} mx-0 my-0">
-          <img src="${obj.src}" alt="${obj.alt}" width="${obj.width}" height="${obj.height}" class="max-w-[100%] h-auto" />
-          <figcaption>${obj.caption}</figcaption>
-        </figure>`;
+        return h('figure', { className: `text-center sm:float-${obj.float} float-none sm:max-w-[50%] sm:${marginClass} mx-0 my-0` },
+          h('img', { src: obj.src, alt: obj.alt, width: obj.width, height: obj.height, className: "max-w-[100%] h-auto" }),
+          h('figcaption', {}, obj.caption)
+        );
       }
     });
   </script>
