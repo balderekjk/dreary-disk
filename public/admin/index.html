@@ -65,7 +65,7 @@
         widget: 'markdown'
       }
     ],
-    pattern: /^<details>$\s*?<summary>(.*?)<\/summary>\n\n(.*?)\n^<\/details>$/ms,
+    pattern: /^<details><summary>(.*?)<\/summary>(.*?)<\/details>$/ms,
     fromBlock: function(match) {
       return {
         summary: match[1],
@@ -73,28 +73,12 @@
       };
     },
     toBlock: function(data) {
-      return `
-  <details>
-    <summary>${data.summary}</summary>
-
-    ${data.contents}
-
-  </details>
-  `;
+      return `<details><summary>${data.summary}</summary>${data.contents}</details>`;
     },
     toPreview: function(data) {
-      return `
-  <details>
-    <summary>${data.summary}</summary>
-
-    ${data.contents}
-
-  </details>
-  `;
+      return `<details><summary>${data.summary}</summary>${data.contents}</details>`;
     }
   });
-
-  CMS.init();
   </script>
 </body>
 
