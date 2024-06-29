@@ -51,35 +51,29 @@
 //   }
 // });
 CMS.registerEditorComponent({
-  id: "sidenote",
-  label: "Sidenote",
-  fields: [{
-    name: 'element',
-    label: 'In-Text Element',
-    widget: 'string'
-  }, {
-    name: 'sidenote',
-    label: 'Sidenote',
-    widget: 'markdown'
-  }],
-  pattern: /^<span class="sidenote"><span class="sidenote__toggle">(.*)<\/span><span class="sidenote__note">(.*)<\/span><\/span>/,
-  fromBlock: function(match) {
+  id: 'text-image',
+  label: 'Text & image',
+
+  fields: [
+    { name: 'src', label: 'Image', widget: 'image' },
+    { name: 'alt', label: 'Image alt', widget: 'string', default: '', required: false },
+    { name: 'inner', label: 'Content', widget: 'markdown' },
+  ],
+
+  pattern: /^{{< text-image src="(.*)" alt="(.*)" >}}(.*){{< \/text-image >}}/s,
+
+  fromBlock (match) {
     return {
-      element: match[1],
-      sidenote: match[2],
-    };
+      src: match[1],
+      alt: match[2],
+      inner: match[3],
+    }
   },
-  toBlock: function(obj) {
-    return (
-      '<span class="sidenote"><span class="sidenote__toggle">' + obj.element + '</span><span class="sidenote__note">' + obj.sidenote + '</span></span>'
-    );
+
+  toBlock (obj) {
+    return `{{< text-image src="${obj.src}" alt="${obj.alt}" >}}${obj.inner}{{< /text-image >}}`
   },
-  toPreview: function(obj) {
-    return (
-      '<span class="sidenote"><span class="sidenote__toggle">' + obj.element + '</span><span class="sidenote__note">' + obj.sidenote + '</span></span>'
-    );
-  },
-});
+})
 </script>
 </body>
 
